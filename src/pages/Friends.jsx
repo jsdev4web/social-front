@@ -9,7 +9,7 @@ function UsersPage() {
 
   const fetchUsers = async () => {
     try {
-      const res = await fetch("http://localhost:3000/friends", {
+      const res = await fetch(`${import.meta.env.VITE_API_URL}/friends`, {
         credentials: "include",
       });
 
@@ -22,7 +22,7 @@ function UsersPage() {
 
   const handleFollow = async (userId) => {
     try {
-      await fetch("http://localhost:3000/friends/follow", {
+      await fetch(`${import.meta.env.VITE_API_URL}/friends/follow`, {
         method: "POST",
         credentials: "include",
         headers: {
@@ -43,7 +43,7 @@ function UsersPage() {
 
   const handleUnfollow = async (userId) => {
     try {
-      await fetch("http://localhost:3000/friends/unfollow", {
+      await fetch(`${import.meta.env.VITE_API_URL}/friends/unfollow`, {
         method: "POST",
         credentials: "include",
         headers: {

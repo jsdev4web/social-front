@@ -29,7 +29,7 @@ function Signup(){
 
     try {
       //Send post to backend api
-      const response = await fetch('http://localhost:3000/auth/sign-up', {
+      const response = await fetch(`${import.meta.env.VITE_API_URL}/auth/sign-up`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',

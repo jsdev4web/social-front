@@ -9,7 +9,7 @@ function FollowingPage() {
     const fetchContent = async () => {
       try {
         const response = await fetch(
-          "http://localhost:3000/post/mypost",
+          `${import.meta.env.VITE_API_URL}/post/mypost`,
           {
             credentials: "include",
           }

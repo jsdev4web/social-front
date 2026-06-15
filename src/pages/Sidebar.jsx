@@ -15,7 +15,7 @@ function Sidebar() {
     const fetchProfiles = async () => {
       try {
         const response = await fetch(
-          "http://localhost:3000/dash/profiles",
+          `${import.meta.env.VITE_API_URL}/dash/profiles`,
           {
             credentials: "include",
           }
@@ -35,7 +35,7 @@ function Sidebar() {
   const fetchPosts = async () => {
     try {
       const response = await fetch(
-        "http://localhost:3000/post/feed",
+        `${import.meta.env.VITE_API_URL}/post/feed`,
         {
           credentials: "include",
         }
@@ -65,7 +65,7 @@ useEffect(() => {
 
  const handleFollow = async (user) => {
   try {
-    const route = "http://localhost:3000/dash/follow";
+    const route = `${import.meta.env.VITE_API_URL}/dash/follow`;
 
     await fetch(route, {
       method: "POST",
@@ -94,7 +94,7 @@ useEffect(() => {
 // i may just skip this!!!
 const handleUnfollow = async () => {
     try {
-      await fetch("http://localhost:3000/dash/unfollow", {
+      await fetch(`${import.meta.env.VITE_API_URL}/dash/unfollow`, {
   method: "POST"
       });
     } catch (error) {
@@ -112,7 +112,7 @@ const handleUnfollow = async () => {
   //handle Like
   const handleLike = async (postId) => {
   try {
-    const response = await fetch(`http://localhost:3000/post/${postId}/like`, {
+    const response = await fetch(`${import.meta.env.VITE_API_URL}/post/${postId}/like`, {
       method: "POST",
       credentials: "include",
       headers: {
@@ -139,7 +139,7 @@ const handleUnfollow = async () => {
   // logout
   const handleLogout = async () => {
     try {
-      await fetch("http://localhost:3000/auth/logout", {
+      await fetch(`${import.meta.env.VITE_API_URL}/auth/logout`, {
         method: "POST",
         credentials: "include",
       });

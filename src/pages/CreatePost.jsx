@@ -10,7 +10,7 @@ function Post() {
     e.preventDefault();
 
     try {
-      await fetch("http://localhost:3000/post/create", {
+      await fetch(`${import.meta.env.VITE_API_URL}/post/create`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",

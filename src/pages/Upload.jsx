@@ -8,7 +8,7 @@ function UploadPage() {
     formData.append("image", file);
 
     try {
-      const res = await fetch("http://localhost:3000/profile/upload", {
+      const res = await fetch(`${import.meta.env.VITE_API_URL}/profile/upload`, {
         method: "POST",
         credentials: "include",
         body: formData,

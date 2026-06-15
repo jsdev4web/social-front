@@ -24,7 +24,7 @@ console.log(postId)
   }
 
   try {
-    const response = await fetch("http://localhost:3000/comment/create", {
+    const response = await fetch(`${import.meta.env.VITE_API_URL}/comment/create`, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
