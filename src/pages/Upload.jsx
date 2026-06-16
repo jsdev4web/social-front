@@ -31,52 +31,50 @@ function UploadPage() {
   };
 
   const handleDeleteImage = async () => {
-  try {
-    const res = await fetch(`${import.meta.env.VITE_API_URL}/profile/image`, {
-      method: "DELETE",
-      credentials: "include",
-    });
+    try {
+      const res = await fetch(`${import.meta.env.VITE_API_URL}/profile/image`, {
+        method: "DELETE",
+        credentials: "include",
+      });
 
-    const data = await res.json();
-    console.log("Deleted:", data);
+      const data = await res.json();
+      console.log("Deleted:", data);
 
-    if (res.ok) {
-      window.location.href = "/profile";
+      if (res.ok) {
+        window.location.href = "/profile";
+      }
+    } catch (error) {
+      console.error(error);
     }
-  } catch (error) {
-    console.error(error);
-  }
-};
+  };
 
   return (
-  <div className="profile-card">
-    <h3>Profile Image</h3>
+    <div className="profile-card">
+      <h3>Profile Image</h3>
 
-    <div className="profile-image-section">
-      {user?.image ? (
-        <img
-          src={imageSrc}
-          alt="profile"
-          className="profile-image"
+      <div className="profile-image-section">
+        <input
+          type="file"
+          accept="image/*"
+          onChange={(e) => setFile(e.target.files[0])}
         />
-      ) : (
-        <p>No profile image yet.</p>
-      )}
 
-      <div className="profile-image-buttons">
-        <Link to="/upload">
-          <button>Edit Image</button>
-        </Link>
+        <div className="profile-image-buttons">
+          <button onClick={handleUpload}>
+            Upload / Replace Image
+          </button>
 
-        {user?.image && (
           <button onClick={handleDeleteImage}>
             Delete Image
           </button>
-        )}
+        </div>
+
+        <button onClick={() => (window.location.href = "/profile")}>
+          Back to Profile
+        </button>
       </div>
     </div>
-  </div>
-);
+  );
 }
 
 export default UploadPage;
