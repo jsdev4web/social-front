@@ -16,3 +16,5 @@
 
 # Props is a way to reuse a function over an over but change how it looks Example: Button function
 >>>>>>> eae5ad1 (initial commit)
+
+Backend of Project:  https://github.com/jsdev4web/social-back
