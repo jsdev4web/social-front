@@ -1,7 +1,6 @@
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 
-
 function ProfilePage() {
   const [profile, setProfile] = useState(null);
 
@@ -13,6 +12,8 @@ function ProfilePage() {
         });
 
         const data = await res.json();
+        console.log("PROFILE DATA:", data);
+
         setProfile(data);
       } catch (err) {
         console.error(err);
@@ -24,24 +25,34 @@ function ProfilePage() {
 
   if (!profile) return <p>Loading...</p>;
 
+  const imageSrc = profile.image;
+
   return (
     <div className="profile-page">
-
       {/* USERNAME */}
       <div className="profile-header">
         <h2>{profile.name}</h2>
-      </div> 
+      </div>
 
       <div className="postProfileNav">
-        <Link to="/dashboard">Back to Dashboard</Link></div>
+        <Link to="/dashboard">Back to Dashboard</Link>
+      </div>
 
       {/* IMAGE SECTION */}
-      <div className="profile-image">
-        {profile.image ? (
-          <img src={`http://localhost:3000${profile.image}`} alt="profile" />
+      <div className="profile-image-section">
+        {imageSrc ? (
+          <img
+            src={imageSrc}
+            alt="profile"
+            className="profile-img"
+          />
         ) : (
-          
-        <Link to="/upload">Upload Profile Image</Link>        )}
+          <Link to="/upload">Upload Profile Image</Link>
+        )}
+
+        <div>
+          <Link to="/upload">Edit Profile Image</Link>
+        </div>
       </div>
 
       {/* POSTS */}
@@ -65,7 +76,6 @@ function ProfilePage() {
           ))
         )}
       </div>
-
     </div>
   );
 }
