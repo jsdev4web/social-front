@@ -103,46 +103,46 @@ function UploadPage() {
       : null;
 
   return (
-    <div className="profile-card">
-      <h3>Profile Image</h3>
+  <div className="profile-card">
+    <h3>Profile Image</h3>
 
-      {message && <p>{message}</p>}
+    {message && <p>{message}</p>}
 
-      <div className="profile-image-section">
-        {imageSrc ? (
-          <img
-            src={imageSrc}
-            alt="profile"
-            className="profile-image"
-          />
-        ) : (
-          <p>No profile image yet.</p>
-        )}
-
-        <input
-          type="file"
-          accept="image/*"
-          onChange={(e) => setFile(e.target.files[0])}
+    {/* IMAGE DIV ONLY */}
+    <div className="image-box">
+      {imageSrc ? (
+        <img
+          src={imageSrc}
+          alt="profile"
+          className="profile-image"
         />
-
-        <div className="profile-image-buttons">
-          <button onClick={handleUpload}>
-            Upload / Replace Image
-          </button>
-
-          {imageSrc && (
-            <button onClick={handleDeleteImage}>
-              Delete Image
-            </button>
-          )}
-
-          <button onClick={() => (window.location.href = "/profile")}>
-            Back to Profile
-          </button>
-        </div>
-      </div>
+      ) : (
+        <p>No profile image yet.</p>
+      )}
     </div>
-  );
+
+    {/* BUTTONS / INPUT DIV ONLY */}
+    <div className="button-box">
+      <input
+        type="file"
+        accept="image/*"
+        onChange={(e) => setFile(e.target.files[0])}
+      />
+
+      <button onClick={handleUpload}>
+        Upload / Replace Image
+      </button>
+
+      <button onClick={handleDeleteImage}>
+        Delete Image
+      </button>
+
+      <button onClick={() => (window.location.href = "/profile")}>
+        Back to Profile
+      </button>
+    </div>
+  </div>
+);
 }
 
 export default UploadPage;
