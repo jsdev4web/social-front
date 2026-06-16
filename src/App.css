@@ -269,6 +269,11 @@ nav a:hover {
   background: #fff;
 }
 
+.profile-image-section {
+  text-align: center;
+  margin: 30px 0;
+}
+
 .profile-image {
   width: 150px;
   height: 150px;

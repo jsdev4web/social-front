@@ -49,32 +49,34 @@ function UploadPage() {
 };
 
   return (
-    <div className="profile-card">
-  <h3>Profile Image</h3>
+  <div className="profile-card">
+    <h3>Profile Image</h3>
 
-  {user.image ? (
-    <img
-      src={user.image}
-      alt="Profile"
-      className="profile-image"
-    />
-  ) : (
-    <p>No profile image yet.</p>
-  )}
+    <div className="profile-image-section">
+      {user?.image ? (
+        <img
+          src={imageSrc}
+          alt="profile"
+          className="profile-image"
+        />
+      ) : (
+        <p>No profile image yet.</p>
+      )}
 
-  <div className="profile-image-buttons">
-    <Link to="/upload">
-      <button>Edit Image</button>
-    </Link>
+      <div className="profile-image-buttons">
+        <Link to="/upload">
+          <button>Edit Image</button>
+        </Link>
 
-    {user.image && (
-      <button onClick={handleDeleteImage}>
-        Delete Image
-      </button>
-    )}
+        {user?.image && (
+          <button onClick={handleDeleteImage}>
+            Delete Image
+          </button>
+        )}
+      </div>
+    </div>
   </div>
-</div>
-  );
+);
 }
 
 export default UploadPage;
