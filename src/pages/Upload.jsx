@@ -1,7 +1,9 @@
 import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 
 function UploadPage() {
   const [file, setFile] = useState(null);
+  const navigate = useNavigate();
 
   const handleUpload = async () => {
     if (!file) {
@@ -23,7 +25,7 @@ function UploadPage() {
       console.log("Uploaded:", data);
 
       if (res.ok) {
-        window.location.href = "/profile";
+        navigate("/profile");
       }
     } catch (err) {
       console.error(err);
@@ -31,22 +33,22 @@ function UploadPage() {
   };
 
   const handleDeleteImage = async () => {
-  try {
-    const res = await fetch(`${import.meta.env.VITE_API_URL}/profile/image`, {
-      method: "DELETE",
-      credentials: "include",
-    });
+    try {
+      const res = await fetch(`${import.meta.env.VITE_API_URL}/profile/image`, {
+        method: "DELETE",
+        credentials: "include",
+      });
 
-    const data = await res.json();
-    console.log("Deleted:", data);
+      const data = await res.json();
+      console.log("Deleted:", data);
 
-    if (res.ok) {
-      window.location.href = "/profile";
+      if (res.ok) {
+        navigate("/profile");
+      }
+    } catch (error) {
+      console.error(error);
     }
-  } catch (error) {
-    console.error(error);
-  }
-};
+  };
 
   return (
     <div>
@@ -61,6 +63,7 @@ function UploadPage() {
       <button onClick={handleUpload}>
         Upload
       </button>
+
       <button onClick={handleDeleteImage}>
         Delete Profile Image
       </button>
