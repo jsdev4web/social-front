@@ -42,7 +42,7 @@ function Signup(){
 
       if(response.ok) {
         setMessage(data.message); //success message
-        navigate("/")
+        navigate("/login")
       } else {
         setError(data.message); // Error message
       }
