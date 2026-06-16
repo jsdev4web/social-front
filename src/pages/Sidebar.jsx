@@ -175,7 +175,6 @@ const handleUnfollow = async () => {
         <Link to="/create-post">Create Post</Link>
         <Link to="/profile">Profile</Link>
         <Link to="/my-posts">My Posts</Link>
-        <Link to="/following">Following</Link>
         <Link to="/friends">Friends</Link>
 
       </div>
