@@ -49,22 +49,31 @@ function UploadPage() {
 };
 
   return (
-    <div>
-      <h2>Upload Profile Image</h2>
+    <div className="profile-card">
+  <h3>Profile Image</h3>
 
-      <input
-        type="file"
-        accept="image/*"
-        onChange={(e) => setFile(e.target.files[0])}
-      />
+  {user.image ? (
+    <img
+      src={user.image}
+      alt="Profile"
+      className="profile-image"
+    />
+  ) : (
+    <p>No profile image yet.</p>
+  )}
 
-      <button onClick={handleUpload}>
-        Upload
-      </button>
+  <div className="profile-image-buttons">
+    <Link to="/upload">
+      <button>Edit Image</button>
+    </Link>
+
+    {user.image && (
       <button onClick={handleDeleteImage}>
-        Delete Profile Image
+        Delete Image
       </button>
-    </div>
+    )}
+  </div>
+</div>
   );
 }
 
