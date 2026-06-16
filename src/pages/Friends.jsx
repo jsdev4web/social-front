@@ -64,8 +64,8 @@ function UsersPage() {
 
   return (
     <div className="users-page">
-      <h2>All Users</h2>
-      <Link to="/dashboard">Back to Dashboard</Link>
+      <span><h2>All Users</h2>
+      <Link to="/dashboard">Back to Dashboard</Link></span>
 
       <div className="users-list">
         {users.map((user) => (
