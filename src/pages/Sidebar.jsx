@@ -34,8 +34,6 @@ function Sidebar() {
   useEffect(() => {
   const fetchPosts = async () => {
     try {
-      console.log("SESSION:", req.session);
-      console.log("USER:", req.user);
       const response = await fetch(
         `${import.meta.env.VITE_API_URL}/post/feed`,
         {
@@ -49,10 +47,9 @@ function Sidebar() {
 
       const likedIds = data
         .filter((post) => post.isLiked === true)
-        .map((post) => post.id);
+        .map((post) => Number(post.id));
 
       setLikedPosts(likedIds);
-
     } catch (error) {
       console.error(error);
     }
