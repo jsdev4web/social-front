@@ -32,24 +32,6 @@ function UploadPage() {
     }
   };
 
-  const handleDeleteImage = async () => {
-    try {
-      const res = await fetch(`${import.meta.env.VITE_API_URL}/profile/image`, {
-        method: "DELETE",
-        credentials: "include",
-      });
-
-      const data = await res.json();
-      console.log("Deleted:", data);
-
-      if (res.ok) {
-        navigate("/profile");
-      }
-    } catch (error) {
-      console.error(error);
-    }
-  };
-
   return (
     <div>
       <h2>Upload Profile Image</h2>
@@ -64,8 +46,8 @@ function UploadPage() {
         Upload
       </button>
 
-      <button onClick={handleDeleteImage}>
-        Delete Profile Image
+      <button onClick={() => navigate("/profile")}>
+        Back to Profile
       </button>
     </div>
   );

@@ -23,6 +23,27 @@ function ProfilePage() {
     fetchProfile();
   }, []);
 
+  const handleDeleteImage = async () => {
+    try {
+      const res = await fetch(`${import.meta.env.VITE_API_URL}/profile/image`, {
+        method: "DELETE",
+        credentials: "include",
+      });
+
+      const data = await res.json();
+      console.log("Deleted:", data);
+
+      if (res.ok) {
+        setProfile((prevProfile) => ({
+          ...prevProfile,
+          image: null,
+        }));
+      }
+    } catch (error) {
+      console.error(error);
+    }
+  };
+
   if (!profile) return <p>Loading...</p>;
 
   const imageSrc = profile.image;
@@ -41,11 +62,19 @@ function ProfilePage() {
       {/* IMAGE SECTION */}
       <div className="profile-image-section">
         {imageSrc ? (
-          <img
-            src={imageSrc}
-            alt="profile"
-            className="profile-img"
-          />
+          <>
+            <img
+              src={imageSrc}
+              alt="profile"
+              className="profile-img"
+            />
+
+            <div>
+              <button onClick={handleDeleteImage}>
+                Delete Profile Image
+              </button>
+            </div>
+          </>
         ) : (
           <Link to="/upload">Upload Profile Image</Link>
         )}
