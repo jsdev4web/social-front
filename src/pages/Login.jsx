@@ -34,7 +34,7 @@ function Login(){
  
       if (response.ok) {
         //console.log(data)
-        // login success → i am sending data in url
+        // login success  i am sending data in url
         navigate(`/dashboard`);
       } else {
         setError(data.message || "Login failed");

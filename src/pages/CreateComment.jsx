@@ -32,7 +32,7 @@ console.log(postId)
       credentials: "include",
       body: JSON.stringify({
         content,
-        postId,   // 👈 NOW included
+        postId,  
       }),
     });
 
