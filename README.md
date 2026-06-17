@@ -1,6 +1,4 @@
-<<<<<<< HEAD
 # social-front
-=======
 # React + Vite
 
 # The app is meant to be a social media project that has
@@ -10,11 +8,11 @@
 # From html code to functions EXPERIMENT
 
 # How will i handle routing in this project
+# App.jsx holds all of my routes
 # Main.jsx is where all of my functions route to in order
 
-# React apps need a main div
-
-# Props is a way to reuse a function over an over but change how it looks Example: Button function
->>>>>>> eae5ad1 (initial commit)
+# React apps need a sidebar.jsx
+# Basic fetches to backend using event handlers
+# Each page follows the same pattern
 
 Backend of Project:  https://github.com/jsdev4web/social-back
