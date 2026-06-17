@@ -13,6 +13,7 @@
 
 # React apps need a sidebar.jsx
 # Basic fetches to backend using event handlers
-# Each page follows the same pattern
+# Each page follows the same pattern react handlers fetch to MVC backend
 
+# include sends login data session to identify the logged user
 Backend of Project:  https://github.com/jsdev4web/social-back

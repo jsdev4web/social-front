@@ -44,7 +44,7 @@ function Sidebar() {
       const data = await response.json();
 
       setPosts(data);
-
+      // this is used to turn like post yellow if liked
       const likedIds = data
         .filter((post) => post.isLiked === true)
         .map((post) => Number(post.id));
